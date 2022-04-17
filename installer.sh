@@ -63,7 +63,7 @@ fi
 if [ "$key" = "1" ]
 then
 clear
-./start_dev_server.sh
+./dev_start.sh
 break
 fi
 
@@ -71,7 +71,7 @@ fi
 if [ "$key" = "2" ]
 then
 clear
-./start_prod_server.sh
+./prod_start.sh
 break
 fi
 
