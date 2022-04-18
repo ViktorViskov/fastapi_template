@@ -1,1 +1,1 @@
-uvicorn core.app:WEB_SERVER --host 0.0.0.0 --port 9888
+uvicorn app.app:WEB_SERVER --host 0.0.0.0 --port 9888

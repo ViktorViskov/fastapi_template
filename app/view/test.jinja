@@ -1,0 +1,19 @@
+{# import template #}
+{% extends 'layout.jinja' %} 
+
+{# title block #}
+{% block title %}Test Page{% endblock title %}
+
+{# content block #}
+{% block content %}
+<div>
+{{ obj["random"] }}
+</div>
+<ul>
+  {% for number in obj["numbers"] %}
+    <li>
+      {{ number[1] }}
+    </li>
+  {% endfor %}
+</ul>
+{% endblock content %}

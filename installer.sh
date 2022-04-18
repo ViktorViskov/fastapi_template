@@ -75,19 +75,6 @@ clear
 break
 fi
 
-# generate config file
-if [ "$key" = "3" ]
-then
-rm $config_file_name
-echo "db_addr=$db_addr" >> $config_file_name
-echo "db_user=$db_user" >> $config_file_name
-echo "db_password=$db_password" >> $config_file_name
-echo "db_name=$db_name" >> $config_file_name
-clear
-echo "$config_file_name generated"
-break
-fi
-
 # install sql script
 if [ "$key" = "5" ]
 then
