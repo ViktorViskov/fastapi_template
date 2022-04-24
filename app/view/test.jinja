@@ -7,12 +7,12 @@
 {# content block #}
 {% block content %}
 <div>
-{{ obj["random"] }}
+  {{ obj["random"] }}
 </div>
 <ul>
   {% for number in obj["numbers"] %}
     <li>
-      {{ number[1] }}
+      {{ number }}
     </li>
   {% endfor %}
 </ul>

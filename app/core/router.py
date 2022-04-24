@@ -4,8 +4,8 @@ from fastapi import FastAPI, Request
 from fastapi.templating import Jinja2Templates
 
 # import page controllers
-from app.controller.main_page_controller import main_page_controller
-from app.controller.test_controller import test_controller
+from app.controller import c_main
+from app.controller import c_test
 
 # method for define different routes in web app
 def ROUTER(SERVER: FastAPI):
@@ -15,14 +15,14 @@ def ROUTER(SERVER: FastAPI):
 
     # main page route
     @SERVER.get("/", response_class=HTMLResponse)
-    async def main_page( req: Request):
+    async def processor( req: Request):
         # data from controller
-        obj = main_page_controller(req)
+        obj = c_main.controller(req)
         return templates.TemplateResponse("main.jinja", {"request": req, "obj": obj})
 
     # test
     @SERVER.get("/test")
-    async def test(req: Request):
+    async def processor(req: Request):
         # data from controller
-        obj = test_controller(req)
+        obj = c_test.controller(req)
         return templates.TemplateResponse("test.jinja", {"request": req, "obj": obj})

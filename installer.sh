@@ -7,20 +7,11 @@
 
 # lock unlock configs
 is_configured=false
-
-# configs to setup
-db_addr="address to mysql server"
-db_user="username"
-db_password="password"
-db_name="db name"    # please configure db_install.sql and db_delete.sql
-
 docker_image_name="docker image name"
 docker_container_name="docker container name"
 docker_port_outside=9888   # check Dockerfile EXPOSE and script to start dev and prod server before
 docker_port_inside=9888    # check Dockerfile EXPOSE and script to start dev and prod server before
 # PLEASE CONFIG DOCKER FILE
-
-config_file_name="secret.conf"
 
 # 
 # check for configured
@@ -42,7 +33,6 @@ clear
 echo "ESC: exit"
 echo "1: star dev server"
 echo "2: start prod server"
-echo "3: generate new config file"
 echo "5: install db"
 echo "6: delete db"
 echo "7: install docker"
@@ -106,19 +96,6 @@ echo "Docker container installed"
 break
 fi
 
-# Docker installing
-if [ "$key" = "7" ]
-then
-clear
-
-# build new image and run app
-docker build -t $docker_image_name .
-docker run -dit -p $docker_port_outside:$docker_port_inside --name $docker_container_name $docker_image_name
-
-echo "Docker container installed"
-break
-fi
-
 # Docker removing
 if [ "$key" = "8" ]
 then
@@ -136,15 +113,6 @@ fi
 if [ "$key" = "i" ]
 then
 clear
-
-# config file
-rm $config_file_name
-echo "db_addr=$db_addr" >> $config_file_name
-echo "db_user=$db_user" >> $config_file_name
-echo "db_password=$db_password" >> $config_file_name
-echo "db_name=$db_name" >> $config_file_name
-clear
-echo "$config_file_name generated"
 
 # rewrite db
 mysql -h $db_addr -u $db_user -p$db_password < db_delete.sql

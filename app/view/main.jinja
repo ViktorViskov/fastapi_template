@@ -8,9 +8,10 @@
 
 {# content block #}
 {% block content %}
+    <h3>Test</h3>
     <ul>
         {% for number in obj %}
-            <li>{{ number[1] }}</li>
+            <li>{{ number }}</li>
         {% endfor %}
     </ul>
 {% endblock content %}
