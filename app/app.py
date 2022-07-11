@@ -1,6 +1,6 @@
 # libs
 from fastapi import FastAPI
-from app.core.router import ROUTER
+from app.router import ROUTER
 from app.core.middleware import MIDDLEWARE
 from app.core.cors import CORS
 from app.core.static import STATIC

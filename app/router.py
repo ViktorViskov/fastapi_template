@@ -25,4 +25,4 @@ def ROUTER(SERVER: FastAPI):
     async def processor(req: Request):
         # data from controller
         obj = c_test.controller(req)
-        return templates.TemplateResponse("test.jinja", {"request": req, "obj": obj})
+        return JSONResponse(obj)
